@@ -26,16 +26,16 @@ def main():
     planner.append({"role": "user", "content": goal})
 
     for turn in range(5):
-        print(f\"\\n--- TURN {turn + 1} ---\")
+        print(f"\n--- TURN {turn + 1} ---")
 
         plan = run_agent(planner, model="llama3.1:8b")
         planner.append({"role": "assistant", "content": plan})
-        print("PLANNER:\\n", plan)
+        print("PLANNER:\n", plan)
 
         dev.append({"role": "user", "content": plan})
         dev_reply = run_agent(dev, model="codellama:7b")
         dev.append({"role": "assistant", "content": dev_reply})
-        print("DEV:\\n", dev_reply)
+        print("DEV:\n", dev_reply)
 
         planner.append({"role": "user", "content": dev_reply})
 
