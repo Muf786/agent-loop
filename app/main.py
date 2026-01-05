@@ -25,7 +25,7 @@ def main():
     goal = "Build a simple habit tracking mobile app"
     planner.append({"role": "user", "content": goal})
 
-    for turn in range(5):
+    for turn in range(200):
         print(f"\n--- TURN {turn + 1} ---")
 
         plan = run_agent(planner, model="llama3.1:8b")
